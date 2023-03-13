@@ -18,8 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('books',[BookController::class, 'index']) -> name('index');
-
 Route::group(['prefix' => 'books'], function(){
-    // Route::GET('create',[BookController::class, 'index']) -> name('index');
+    Route::get('',[BookController::class, 'index']) -> name('index');
+    Route::get('{idBooks}',[BookController::class, 'show']) -> name('show');
 });

@@ -12,4 +12,10 @@ class BookController extends Controller
 
         return view('index',['books' => $books]);
     }
+
+    public function show($id){
+        $book = DB::table('books')->find($id);
+
+        return view('show',['id' => $id, "book" => $book]);
+    }
 }

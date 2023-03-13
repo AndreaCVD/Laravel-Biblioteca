@@ -20,10 +20,15 @@
         @foreach($books as $book)
         <tbody>
             <tr>
-                <td>{{$book->id}} {{$book->title}}</td>                
+                <td>{{$book->title}}</td>                
                 <td>{{$book->author}}</td>
                 <td>{{$book->description}}</td>
-                <td>{{$book->price}}</td>
+                <td>{{$book->price}}€</td>
+                <td>
+                    <form action="/books/{{$book->id}}" method="get">
+                        <button class="btn btn-outline-dark" >Show details</button>
+                    </form>
+                </td>
             </tr>
         </tbody>
         @endforeach
