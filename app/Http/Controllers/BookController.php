@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     
     public function index(){
         $books = DB::table('books')->paginate(5);
+        $categories = DB::table('categories')->select('name')->get();
 
-        return view('index',['books' => $books]);
+        return view('index',['books' => $books, 'categories' => $categories]);
     }
 
     public function show($id){
